@@ -35,16 +35,17 @@
 				width: 80%;
 			}
 
-			#bestFriendPhoto{
-				width: 256px;
-				height: 256px;
-			}
-
-			button{
+			#finish	{
 				color: #DDDDDD;
 				background-color: #34A3C4;
 				border: none;
-				padding: 10px;
+				margin-top: 20px;
+				padding: 5px;
+			}
+
+			h3{
+				margin: auto;
+				padding: 5px;
 			}
 
 			#modal{
@@ -54,6 +55,44 @@
 				margin: auto;
 				background-color: #34A3C4;
 				color: #DDDDDD;
+				padding: 10px;
+			}
+
+			#modalContent{
+				width: 65%;
+				margin: auto;
+				padding: 20px 0;
+			}
+
+			#bestFriendName{
+				width: 100%;
+				font-size: 30px;
+				margin: auto;
+				padding: 20px;
+				text-align: center;
+				font-weight: bold;
+			}
+
+			#bestFriendPhoto{
+				width: 256px;
+				height: 256px;
+				margin: auto;
+				display: block;
+			}
+
+			#modalCloseButton{
+				margin: 35px auto auto auto;
+				width: 100%;
+				border: none;
+				background-color: #34A3C4;
+			}
+
+			#modalCloseText{
+				width: 100%;
+				background-color: #DDDDDD;
+				color: #34A3C4;
+				text-align: center;
+				margin: auto;
 			}
 		</style>
 	</head>
@@ -151,9 +190,14 @@
 				</button>
 			</p>
 			<div class="modal fade" id="modal">
-				<div id="bestFriendName"></div>
-				<img id="bestFriendPhoto" src="">
-				<button id="modalClose">Close</button>
+				<div id="modalContent">
+					<h5 id="bestFriendName"></h5>
+					<img id="bestFriendPhoto" src="">
+					<br>
+					<button id="modalCloseButton">
+						<p id="modalCloseText">Close</p>
+					</button>
+				</div>
 			</div>
 		</div>
 	</body>
@@ -176,8 +220,6 @@
 					]
 			}
 
-			console.log(newFriend.scores);
-
 			var currentURL = window.location.origin;
 
 			$.post(currentURL + "/api/friends", newFriend, function(response){
@@ -189,7 +231,7 @@
 			return false;
 		});
 
-		$('#modalClose').click(function(){
+		$('#modalCloseButton').click(function(){
 			$("#modal").modal('toggle');
 		})
 	</script>
