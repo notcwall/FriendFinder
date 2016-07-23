@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Friend Finder</title>
+		<script src="https://code.jquery.com/jquery.js"></script>
+	</head>
+	<body>
+		<h1>Survey</h1>
+		<h2>About You</h2>
+		<p>Name</p>
+		<input type="text" id="name">
+		<p>Photo Link of You</p>
+		<input type="text" id="photo">
+		<p>Question 1</p>
+		<select name="q1" id="q1">
+			<option value="5">Strongly Agree</option>
+			<option value="4">Somewhat Agree</option>
+			<option value="3" selected>Neutral</option>
+			<option value="2">Somewhat Disagree</option>
+			<option value="1">Strongly Disagree</option>
+		</select>
+		<p>Question 2</p>
+		<select name="q2" id="q2">
+			<option value="5">Strongly Agree</option>
+			<option value="4">Somewhat Agree</option>
+			<option value="3" selected>Neutral</option>
+			<option value="2">Somewhat Disagree</option>
+			<option value="1">Strongly Disagree</option>
+		</select>
+		<p>Question 3</p>
+		<select name="q3" id="q3">
+			<option value="5">Strongly Agree</option>
+			<option value="4">Somewhat Agree</option>
+			<option value="3" selected>Neutral</option>
+			<option value="2">Somewhat Disagree</option>
+			<option value="1">Strongly Disagree</option>
+		</select>
+		<p>Question 4</p>
+		<select name="q4" id="q4">
+			<option value="5">Strongly Agree</option>
+			<option value="4">Somewhat Agree</option>
+			<option value="3" selected>Neutral</option>
+			<option value="2">Somewhat Disagree</option>
+			<option value="1">Strongly Disagree</option>
+		</select>
+		<p>Question 5</p>
+		<select name="q5" id="q5">
+			<option value="5">Strongly Agree</option>
+			<option value="4">Somewhat Agree</option>
+			<option value="3" selected>Neutral</option>
+			<option value="2">Somewhat Disagree</option>
+			<option value="1">Strongly Disagree</option>
+		</select>
+		<p>Question 6</p>
+		<select name="q6" id="q6">
+			<option value="5">Strongly Agree</option>
+			<option value="4">Somewhat Agree</option>
+			<option value="3" selected>Neutral</option>
+			<option value="2">Somewhat Disagree</option>
+			<option value="1">Strongly Disagree</option>
+		</select>
+		<p>Question 7</p>
+		<select name="q7" id="q7">
+			<option value="5">Strongly Agree</option>
+			<option value="4">Somewhat Agree</option>
+			<option value="3" selected>Neutral</option>
+			<option value="2">Somewhat Disagree</option>
+			<option value="1">Strongly Disagree</option>
+		</select>
+		<p>Question 8</p>
+		<select name="q8" id="q8">
+			<option value="5">Strongly Agree</option>
+			<option value="4">Somewhat Agree</option>
+			<option value="3" selected>Neutral</option>
+			<option value="2">Somewhat Disagree</option>
+			<option value="1">Strongly Disagree</option>
+		</select>
+		<p>Question 9</p>
+		<select name="q9" id="q9">
+			<option value="5">Strongly Agree</option>
+			<option value="4">Somewhat Agree</option>
+			<option value="3" selected>Neutral</option>
+			<option value="2">Somewhat Disagree</option>
+			<option value="1">Strongly Disagree</option>
+		</select>
+		<p>Question 10</p>
+		<select name="q10" id="q10">
+			<option value="5">Strongly Agree</option>
+			<option value="4">Somewhat Agree</option>
+			<option value="3" selected>Neutral</option>
+			<option value="2">Somewhat Disagree</option>
+			<option value="1">Strongly Disagree</option>
+		</select>
+		<p>
+			<button type="submit" id="finish">
+				<h3>Submit</h3>
+			</button>
+		</p>
+		<div id="bestFriendName"></div>
+		<img id="bestFriendPhoto" src="">
+	</body>
+	<script type="text/javascript">
+		$('#finish').click(function(){
+			var newFriend = {
+				name: $("#name").val(),
+				photo: $("#photo").val(),
+				scores: [
+					$("#q1").val(),
+					$("#q2").val(),
+					$("#q3").val(),
+					$("#q4").val(),
+					$("#q5").val(),
+					$("#q6").val(),
+					$("#q7").val(),
+					$("#q8").val(),
+					$("#q9").val(),
+					$("#q10").val()
+					]
+			}
+
+			var currentURL = window.location.origin;
+
+			$.post(currentURL + "/api/friends", newFriend, function(response){
+				$("#bestFriendName").text(response.name);
+				$("#bestFriendPhoto").attr("src", response.photo);
+			});
+
+			return false;
+		});
+	</script>
+</html>
