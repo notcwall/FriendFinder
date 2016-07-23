@@ -176,6 +176,8 @@
 					]
 			}
 
+			console.log(newFriend.scores);
+
 			var currentURL = window.location.origin;
 
 			$.post(currentURL + "/api/friends", newFriend, function(response){

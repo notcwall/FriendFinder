@@ -10,9 +10,9 @@ function compareScores(inputUser){
 	for(var i = 0; i < friends.length; i++){
 		if(inputUser.name != friends[i].name){
 			for(var j = 0; j < 10; j++){
-				currentDifference += Math.abs(inputUser.scores[j] - friends[i].scores[j]);
+				currentDifference += Math.abs(parseInt(inputUser.scores[j]) - parseInt(friends[i].scores[j]));
 			}
-			if(currentDifference < lowestDifference){
+			if(currentDifference <= lowestDifference){
 				lowestDifference = currentDifference;
 				bestMatch = friends[i];
 			}
