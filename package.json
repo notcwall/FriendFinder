@@ -1,0 +1,11 @@
+{
+  "name": "FriendFinder",
+  "version": "0.0.1",
+  "author": "Conor Mullen",
+  "description": "Find some pals",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "path": "^0.12.7"
+  }
+}

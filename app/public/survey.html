@@ -2,102 +2,160 @@
 <html>
 	<head>
 		<title>Friend Finder</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 		<script src="https://code.jquery.com/jquery.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+		<style>
+			body{
+				background-color: #34A3C4;
+				color: #DDDDDD;
+				font-family: sans-serif;
+				font-weight: bold;
+			}
+
+			#content{
+				background-color: #DDDDDD;
+				color: #34A3C4;
+				width: 700px;
+				margin: auto;
+				padding: 25px;
+			}
+
+			h1{
+				width: 100%;
+				text-align: center;
+				font-size: 80px;
+			}
+
+			h2{
+				margin-bottom: 30px;
+			}
+
+			#name, #photo{
+				width: 80%;
+			}
+
+			#bestFriendPhoto{
+				width: 256px;
+				height: 256px;
+			}
+
+			button{
+				color: #DDDDDD;
+				background-color: #34A3C4;
+				border: none;
+				padding: 10px;
+			}
+
+			#modal{
+				width: 500px;
+				height: 500px;
+				align: center;
+				margin: auto;
+				background-color: #34A3C4;
+				color: #DDDDDD;
+			}
+		</style>
 	</head>
 	<body>
-		<h1>Survey</h1>
-		<h2>About You</h2>
-		<p>Name</p>
-		<input type="text" id="name">
-		<p>Photo Link of You</p>
-		<input type="text" id="photo">
-		<p>Question 1</p>
-		<select name="q1" id="q1">
-			<option value="5">Strongly Agree</option>
-			<option value="4">Somewhat Agree</option>
-			<option value="3" selected>Neutral</option>
-			<option value="2">Somewhat Disagree</option>
-			<option value="1">Strongly Disagree</option>
-		</select>
-		<p>Question 2</p>
-		<select name="q2" id="q2">
-			<option value="5">Strongly Agree</option>
-			<option value="4">Somewhat Agree</option>
-			<option value="3" selected>Neutral</option>
-			<option value="2">Somewhat Disagree</option>
-			<option value="1">Strongly Disagree</option>
-		</select>
-		<p>Question 3</p>
-		<select name="q3" id="q3">
-			<option value="5">Strongly Agree</option>
-			<option value="4">Somewhat Agree</option>
-			<option value="3" selected>Neutral</option>
-			<option value="2">Somewhat Disagree</option>
-			<option value="1">Strongly Disagree</option>
-		</select>
-		<p>Question 4</p>
-		<select name="q4" id="q4">
-			<option value="5">Strongly Agree</option>
-			<option value="4">Somewhat Agree</option>
-			<option value="3" selected>Neutral</option>
-			<option value="2">Somewhat Disagree</option>
-			<option value="1">Strongly Disagree</option>
-		</select>
-		<p>Question 5</p>
-		<select name="q5" id="q5">
-			<option value="5">Strongly Agree</option>
-			<option value="4">Somewhat Agree</option>
-			<option value="3" selected>Neutral</option>
-			<option value="2">Somewhat Disagree</option>
-			<option value="1">Strongly Disagree</option>
-		</select>
-		<p>Question 6</p>
-		<select name="q6" id="q6">
-			<option value="5">Strongly Agree</option>
-			<option value="4">Somewhat Agree</option>
-			<option value="3" selected>Neutral</option>
-			<option value="2">Somewhat Disagree</option>
-			<option value="1">Strongly Disagree</option>
-		</select>
-		<p>Question 7</p>
-		<select name="q7" id="q7">
-			<option value="5">Strongly Agree</option>
-			<option value="4">Somewhat Agree</option>
-			<option value="3" selected>Neutral</option>
-			<option value="2">Somewhat Disagree</option>
-			<option value="1">Strongly Disagree</option>
-		</select>
-		<p>Question 8</p>
-		<select name="q8" id="q8">
-			<option value="5">Strongly Agree</option>
-			<option value="4">Somewhat Agree</option>
-			<option value="3" selected>Neutral</option>
-			<option value="2">Somewhat Disagree</option>
-			<option value="1">Strongly Disagree</option>
-		</select>
-		<p>Question 9</p>
-		<select name="q9" id="q9">
-			<option value="5">Strongly Agree</option>
-			<option value="4">Somewhat Agree</option>
-			<option value="3" selected>Neutral</option>
-			<option value="2">Somewhat Disagree</option>
-			<option value="1">Strongly Disagree</option>
-		</select>
-		<p>Question 10</p>
-		<select name="q10" id="q10">
-			<option value="5">Strongly Agree</option>
-			<option value="4">Somewhat Agree</option>
-			<option value="3" selected>Neutral</option>
-			<option value="2">Somewhat Disagree</option>
-			<option value="1">Strongly Disagree</option>
-		</select>
-		<p>
-			<button type="submit" id="finish">
-				<h3>Submit</h3>
-			</button>
-		</p>
-		<div id="bestFriendName"></div>
-		<img id="bestFriendPhoto" src="">
+		<div id="content">
+			<h1>Survey</h1>
+			<h2>About You</h2>
+			<p>Name</p>
+			<input type="text" id="name">
+			<p>Photo Link of You</p>
+			<input type="text" id="photo">
+			<p>Question 1</p>
+			<select name="q1" id="q1">
+				<option value="5">Strongly Agree</option>
+				<option value="4">Somewhat Agree</option>
+				<option value="3" selected>Neutral</option>
+				<option value="2">Somewhat Disagree</option>
+				<option value="1">Strongly Disagree</option>
+			</select>
+			<p>Question 2</p>
+			<select name="q2" id="q2">
+				<option value="5">Strongly Agree</option>
+				<option value="4">Somewhat Agree</option>
+				<option value="3" selected>Neutral</option>
+				<option value="2">Somewhat Disagree</option>
+				<option value="1">Strongly Disagree</option>
+			</select>
+			<p>Question 3</p>
+			<select name="q3" id="q3">
+				<option value="5">Strongly Agree</option>
+				<option value="4">Somewhat Agree</option>
+				<option value="3" selected>Neutral</option>
+				<option value="2">Somewhat Disagree</option>
+				<option value="1">Strongly Disagree</option>
+			</select>
+			<p>Question 4</p>
+			<select name="q4" id="q4">
+				<option value="5">Strongly Agree</option>
+				<option value="4">Somewhat Agree</option>
+				<option value="3" selected>Neutral</option>
+				<option value="2">Somewhat Disagree</option>
+				<option value="1">Strongly Disagree</option>
+			</select>
+			<p>Question 5</p>
+			<select name="q5" id="q5">
+				<option value="5">Strongly Agree</option>
+				<option value="4">Somewhat Agree</option>
+				<option value="3" selected>Neutral</option>
+				<option value="2">Somewhat Disagree</option>
+				<option value="1">Strongly Disagree</option>
+			</select>
+			<p>Question 6</p>
+			<select name="q6" id="q6">
+				<option value="5">Strongly Agree</option>
+				<option value="4">Somewhat Agree</option>
+				<option value="3" selected>Neutral</option>
+				<option value="2">Somewhat Disagree</option>
+				<option value="1">Strongly Disagree</option>
+			</select>
+			<p>Question 7</p>
+			<select name="q7" id="q7">
+				<option value="5">Strongly Agree</option>
+				<option value="4">Somewhat Agree</option>
+				<option value="3" selected>Neutral</option>
+				<option value="2">Somewhat Disagree</option>
+				<option value="1">Strongly Disagree</option>
+			</select>
+			<p>Question 8</p>
+			<select name="q8" id="q8">
+				<option value="5">Strongly Agree</option>
+				<option value="4">Somewhat Agree</option>
+				<option value="3" selected>Neutral</option>
+				<option value="2">Somewhat Disagree</option>
+				<option value="1">Strongly Disagree</option>
+			</select>
+			<p>Question 9</p>
+			<select name="q9" id="q9">
+				<option value="5">Strongly Agree</option>
+				<option value="4">Somewhat Agree</option>
+				<option value="3" selected>Neutral</option>
+				<option value="2">Somewhat Disagree</option>
+				<option value="1">Strongly Disagree</option>
+			</select>
+			<p>Question 10</p>
+			<select name="q10" id="q10">
+				<option value="5">Strongly Agree</option>
+				<option value="4">Somewhat Agree</option>
+				<option value="3" selected>Neutral</option>
+				<option value="2">Somewhat Disagree</option>
+				<option value="1">Strongly Disagree</option>
+			</select>
+			<p>
+				<button type="submit" id="finish" data-toggle="modal" data-target="#modal">
+					<h3>Submit</h3>
+				</button>
+			</p>
+			<div class="modal fade" id="modal">
+				<div id="bestFriendName"></div>
+				<img id="bestFriendPhoto" src="">
+				<button id="modalClose">Close</button>
+			</div>
+		</div>
 	</body>
 	<script type="text/javascript">
 		$('#finish').click(function(){
@@ -123,9 +181,14 @@
 			$.post(currentURL + "/api/friends", newFriend, function(response){
 				$("#bestFriendName").text(response.name);
 				$("#bestFriendPhoto").attr("src", response.photo);
+				$("#modal").modal('toggle');
 			});
 
 			return false;
 		});
+
+		$('#modalClose').click(function(){
+			$("#modal").modal('toggle');
+		})
 	</script>
 </html>
